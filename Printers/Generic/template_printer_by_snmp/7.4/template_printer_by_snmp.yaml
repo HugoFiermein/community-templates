@@ -256,7 +256,7 @@ zabbix_export:
               key: 'printer.pages.total[{#SNMPINDEX}]'
               delay: 1h
               history: 90d
-              units: pages
+              units: '!pages'
               description: 'Sum of prtMarkerLifeCount over all markers of the device. What is counted (sheets, impressions, clicks) depends on the vendor.'
               preprocessing:
                 - type: JAVASCRIPT
@@ -278,7 +278,7 @@ zabbix_export:
               key: 'printer.pages.rate[{#SNMPINDEX}]'
               history: 90d
               value_type: FLOAT
-              units: pages/h
+              units: '!pages/h'
               preprocessing:
                 - type: CHANGE_PER_SECOND
                   parameters:
@@ -646,7 +646,7 @@ zabbix_export:
               key: 'printer.tray.level[{#SNMPINDEX}]'
               history: 30d
               value_type: FLOAT
-              units: sheets
+              units: '!sheets'
               description: 'prtInputCurrentLevel. -2 unknown, -3 some paper (amount not reported), 0 empty.'
               valuemap:
                 name: 'Printer-MIB::prtMarkerSuppliesLevel'
